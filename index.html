@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego del Ahorcado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/assets/img/Icono.jpg" />
+    <link rel="apple-touch-icon" href="/assets/img/Icono.jpg" />
+    <meta name="theme-color" content="#181616f5" />
+  </head>
+  <body>
+    <div class="main">
+      <header class="header">
+        <h1>JUEGO DEL AHORCADO</h1>
+      </header>
+      <section class="section">
+        <div class="container">
+          <div class="container-img">
+            <img src="/assets/img/Ahorcado0.svg" alt="Hangman" />
+          </div>
+          <div class="container-button">
+            <div class="palabra_adivinar"></div>
+            <div class="palabras-usadas-mobile"></div>
+            <div class="content-enviar-mobile">
+              <input
+                type="text"
+                name="enviar"
+                id="enviar-contenido"
+                maxlength="1"
+              />
+            </div>
+            <button
+              type="button"
+              class="button-enviar-mobile"
+              id="enviar-palabra"
+            >
+              Enviar
+            </button>
+            <button
+              type="button"
+              class="button-start button-start-active"
+              id="jugar-btn"
+            >
+              JUGAR
+            </button>
+          </div>
+
+          <div class="container-letras">
+            <button type="button" class="letra letra-hover">a</button>
+            <button type="button" class="letra letra-hover">b</button>
+            <button type="button" class="letra letra-hover">c</button>
+            <button type="button" class="letra letra-hover">d</button>
+            <button type="button" class="letra letra-hover">e</button>
+            <button type="button" class="letra letra-hover">f</button>
+            <button type="button" class="letra letra-hover">g</button>
+            <button type="button" class="letra letra-hover">h</button>
+            <button type="button" class="letra letra-hover">i</button>
+            <button type="button" class="letra letra-hover">j</button>
+            <button type="button" class="letra letra-hover">k</button>
+            <button type="button" class="letra letra-hover">l</button>
+            <button type="button" class="letra letra-hover">m</button>
+            <button type="button" class="letra letra-hover">n</button>
+            <button type="button" class="letra letra-hover">ñ</button>
+            <button type="button" class="letra letra-hover">o</button>
+            <button type="button" class="letra letra-hover">p</button>
+            <button type="button" class="letra letra-hover">q</button>
+            <button type="button" class="letra letra-hover">r</button>
+            <button type="button" class="letra letra-hover">s</button>
+            <button type="button" class="letra letra-hover">t</button>
+            <button type="button" class="letra letra-hover">u</button>
+            <button type="button" class="letra letra-hover">v</button>
+            <button type="button" class="letra letra-hover">w</button>
+            <button type="button" class="letra letra-hover">x</button>
+            <button type="button" class="letra letra-hover">y</button>
+            <button type="button" class="letra letra-hover">z</button>
+          </div>
+
+          <!--* Aquí pondre el modal  -->
+          <div class="modal modal-screen">
+            <div class="modal-img">
+              <img src="" alt="Resultado" />
+            </div>
+            <div class="text-result">
+              <div class="text">
+                <span>Ganaste</span>
+              </div>
+              <div class="link">
+                <!-- <span>asasa</span> -->
+                <a
+                  href="https://www.gob.pe/qu/20715-como-prevenir-el-suicidio"
+                  target="_blank"
+                  >Más información Aquí
+                </a>
+              </div>
+            </div>
+            <div class="button-restart">
+              <button
+                type="button"
+                id="re-start"
+                class="re-start-hover re-start"
+              >
+                Reiniciar juego
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- ajustes-active -->
+    <button class="ajustes">
+      <i class="fa-solid fa-eye"></i>
+    </button>
+
+    <div class="main" style="width: 3000; height: 200px">
+      <br />
+      <br />
+      <br />
+    </div>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

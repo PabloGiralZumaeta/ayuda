@@ -1,0 +1,643 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-family: "Work Sans", sans-serif;
+}
+body {
+  /* min-height: 100%; */
+  position: relative;
+}
+body .main {
+  background-image: url("/assets/img/starfall-gif-51.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background-color: #181616f5;
+  color: #ddd;
+  height: 10vh;
+  position: sticky;
+  top: 0px;
+  text-align: center;
+}
+
+.section {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px 5px rgba(196, 190, 190, 0.11);
+  backdrop-filter: blur(16px);
+}
+
+/*TODOS: Aqui vamos configurando el mobile */
+
+@media (min-width: 320px) {
+  .container-letras {
+    display: none;
+  }
+
+  /* * este es importante */
+  .header > h1 {
+    font-size: 24px;
+    font-family: var(--font-family);
+    padding-top: 16px;
+  }
+
+  .container {
+    position: relative;
+    min-width: 288px;
+    height: 465px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-self: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 5px rgba(196, 190, 190, 0.11);
+    backdrop-filter: blur(16px);
+    gap: 10px 0px;
+  }
+  .container-img {
+    margin-top: 8px;
+    width: 100%;
+    height: 192px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+  }
+  .container-img > img {
+    display: inline-block;
+    width: 192px;
+    height: 192px;
+    /* background-color: aqua; */
+  }
+  .container-button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    /** background-color: rgb(123, 40, 218); */
+  }
+  .palabra_adivinar {
+    align-self: center;
+    background-color: transparent;
+    color: #ffd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    width: 270px;
+    height: 48px;
+    /*! display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    /* background-color: tomato; */
+    gap: 0px 2px;
+    display: none;
+  }
+
+  .palabra_adivinar span {
+    /* background-color: aqua; */
+    display: inline-block;
+    font-family: var(--font-family);
+    font-size: 28px;
+    width: 22px;
+    height: 40px;
+    border-bottom: 2px solid #fff;
+  }
+  .palabras-usadas-mobile {
+    /*! display: flex; */
+    background-color: rgba(12, 12, 12, 0.27);
+    width: 200px;
+    height: 28px;
+    margin-top: 5px;
+    font-size: 25px;
+    font-family: var(--font-family);
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    display: none;
+  }
+  .content-enviar-mobile {
+    /*! display: flex; */
+    width: 96px;
+    height: 32px;
+    background-color: yellowgreen;
+    display: none;
+  }
+  .content-enviar-mobile input[type="text"] {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    text-align: center;
+  }
+  .button-enviar-mobile {
+    /*! display: inline-block; */
+    width: 160px;
+    height: 48px;
+    /* margin-top: 60px; */
+    align-self: center;
+    font-family: var(--font-family);
+    border-radius: 5px;
+    font-size: 31.2px;
+    font-weight: bolder;
+    background-color: rgb(19, 17, 17);
+    color: rgba(221, 221, 221, 0.928);
+    box-shadow: 1px 2px 3px 3px #ddd;
+    transition: 0.5s transform ease-in-out;
+    display: none;
+  }
+  .button-enviar-mobile:active {
+    background-color: rgba(24, 22, 22, 0.961);
+    color: #fff;
+    transform: scale(1.21);
+  }
+  .button-start {
+    display: inline-block;
+    width: 160px;
+    height: 48px;
+    /* margin-top: 60px; */
+    align-self: center;
+    font-family: var(--font-family);
+    border-radius: 5px;
+    font-size: 31.2px;
+    font-weight: bolder;
+    background-color: rgb(19, 17, 17);
+    color: rgba(221, 221, 221, 0.928);
+    box-shadow: 1px 2px 3px 3px #ddd;
+    transition: 0.5s transform ease-in-out;
+  }
+  .button-start-active:active {
+    background-color: #181616f5;
+    color: #fff;
+    transform: scale(1.21);
+  }
+
+  /* /* *Añadir con JS */
+  .button-start-mobile {
+    display: none;
+  }
+
+  /** Aqui haré el modal */
+  .modal {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000d;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    /* background-color: aqua; */
+    align-items: center;
+    /* gap: 16px; */
+  }
+  .modal-img {
+    width: 192px;
+    height: 192px;
+  }
+
+  .modal-img > img {
+    border-radius: 50px;
+    display: inline-block;
+    /* border: 1px solid #000; */
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .text-result {
+    width: 317px;
+    height: 61px;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    text-align: center;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .link > a {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 33px;
+  }
+
+  .modal > .button-restart {
+    width: 223px;
+    height: 49px;
+  }
+  .re-start {
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    font-family: var(--font-family);
+    background-color: rgb(19, 17, 17);
+    border-radius: 8px;
+    color: rgba(221, 221, 221, 0.928);
+    box-shadow: 1px 2px 3px 3px #ddd;
+    transition: 0.1s ease-in-out transform;
+  }
+  .re-start-hover:active {
+    transform: scale(1.03);
+    background-color: rgba(14, 13, 13, 0.961);
+    color: #fff;
+  }
+
+  .modal-screen {
+    display: none;
+  }
+  .ajustes {
+    position: absolute;
+    right: 1px;
+    bottom: 5px;
+    background-color: rgba(24, 22, 22, 0.961);
+    border-radius: 6px;
+    color: white;
+    width: 35px;
+    height: 35px;
+  }
+  .ajustes-active {
+    color: rgba(24, 22, 22, 0.961);
+    background-color: white;
+  }
+}
+
+/* TODOS : Aqui empieza el responsive desing de los dispositivos de Tablet */
+@media (min-width: 744px) {
+  /* Aqui haré el modal */
+  .modal {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000d;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    /* background-color: aqua; */
+    align-items: center;
+    /* gap: 16px; */
+  }
+  .modal-img {
+    width: 272px;
+    height: 272px;
+  }
+
+  .modal-img > img {
+    border-radius: 50px;
+    display: inline-block;
+    /* border: 1px solid #000; */
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .text-result {
+    width: 317px;
+    height: 61px;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    text-align: center;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .link > a {
+    font-size: 24px;
+  }
+
+  .modal > .button-restart {
+    width: 336px;
+    height: 74px;
+  }
+  .re-start {
+    width: 100%;
+    height: 100%;
+    font-size: 36.3px;
+    font-weight: medium;
+    font-family: var(--font-family);
+    background-color: rgb(19, 17, 17);
+    border-radius: 8px;
+    color: rgba(221, 221, 221, 0.928);
+    box-shadow: 1px 2px 3px 3px #ddd;
+    transition: 0.1s ease-in-out transform;
+  }
+  .re-start-hover:active {
+    transform: scale(1.03);
+    background-color: rgba(14, 13, 13, 0.961);
+    color: #fff;
+  }
+
+  .modal-screen {
+    display: none;
+  }
+
+  /* ! se añade con JS */
+  .modal-mobile-validacion {
+    display: none;
+  }
+
+  .header > h1 {
+    font-size: 42.5px;
+    font-family: var(--font-family);
+    padding-top: 8px;
+  }
+
+  .section {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    position: relative;
+    max-width: 1120px;
+    height: 597px;
+    margin: 0px 32px;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .container-img {
+    width: 39%;
+    height: 368px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container-img > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Parte de las letras en guiones */
+  .container-button {
+    width: 61%;
+    height: 368px;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .container-button .palabra_adivinar {
+    align-self: center;
+    background-color: transparent;
+    color: #ffd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+    height: 113.14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: yellow; */
+  }
+
+  .button-start {
+    margin-top: 0px;
+  }
+  .palabra_adivinar span {
+    /* background-color: aqua; */
+    display: inline-block;
+    font-family: var(--font-family);
+    font-size: 50px;
+    width: 20px;
+    height: 70px;
+    margin: 20px 4px;
+    border-bottom: 2px solid #fff;
+  }
+
+  /*! .palabras-usadas-off {
+    display: none;
+  } */
+  .palabras-usadas-mobile,
+  .content-enviar-mobile,
+  .button-enviar-mobile {
+    display: none;
+  }
+  /*  */
+  .button-start {
+    display: inline-block;
+    width: 208px;
+    height: 64px;
+    font-size: 31.2px;
+    transition: 0.5s transform ease-in-out;
+  }
+  .button-start-active:hover {
+    background-color: rgba(24, 22, 22, 0.961);
+    color: #fff;
+    transform: scale(1.21);
+  }
+
+  .button-start:disabled {
+    box-shadow: 2px 2px 5px 1px rgb(41, 125, 221);
+    color: rgb(75, 149, 233);
+  }
+
+  .container-letras {
+    display: flex;
+    width: 100%;
+    height: 189px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px 16px;
+    padding: 12px;
+  }
+
+  .container-letras .letra {
+    font-size: 24px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    color: white;
+    border: 0.5px solid #ffd;
+    border-radius: 8px;
+    transition: 1s background-color linear;
+  }
+  .container-letras .letra-hover:hover {
+    color: black;
+    background-color: rgb(126, 120, 120);
+    transition: 0.1s linear transform;
+  }
+  .letra-hover:hover:focus {
+    transform: scale(1.1);
+  }
+
+  /* Por si quiero que este disabled*/
+  .container-letras .letra:disabled {
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+  }
+  .ajustes {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    top: 5px;
+    right: 5px;
+    justify-content: center;
+    font-size: 24px;
+    border-color: #201f1f;
+  }
+  .ajustes i {
+    align-self: center;
+  }
+}
+
+@media (min-width: 917px) {
+  .palabra_adivinar span {
+    /* background-color: aqua; */
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .palabra_adivinar span {
+    /* background-color: aqua; */
+    font-size: 60px;
+    width: 30px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ajustes {
+    top: 90vh;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+  .palabra_adivinar span {
+    /* background-color: aqua; */
+    font-size: 66px;
+    width: 35px;
+    height: 80px;
+    margin: 10px 3px;
+  }
+  /* Aqui haré el modal */
+  .modal {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000d;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    /* background-color: aqua; */
+    align-items: center;
+    /* gap: 16px; */
+  }
+  .modal-img {
+    width: 272px;
+    height: 272px;
+  }
+
+  .modal-img > img {
+    border-radius: 50px;
+    display: inline-block;
+    /* border: 1px solid #000; */
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .text-result {
+    width: 317px;
+    height: 61px;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    text-align: center;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .link > a {
+    font-size: 24px;
+  }
+
+  .modal > .button-restart {
+    width: 336px;
+    height: 74px;
+  }
+  .re-start {
+    width: 100%;
+    height: 100%;
+    font-size: 36.3px;
+    font-weight: medium;
+    font-family: var(--font-family);
+    background-color: rgb(19, 17, 17);
+    border-radius: 8px;
+    color: rgba(221, 221, 221, 0.928);
+    box-shadow: 1px 2px 3px 3px #ddd;
+    transition: 0.1s ease-in-out transform;
+  }
+  .re-start-hover:active {
+    transform: scale(1.03);
+    background-color: rgba(14, 13, 13, 0.961);
+    color: #fff;
+  }
+
+  .modal-screen {
+    display: none;
+  }
+}
